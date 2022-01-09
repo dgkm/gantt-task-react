@@ -25,7 +25,6 @@ export const getCachedDateTimeFormat = (
   return dtf;
 };
 
-
 export const addToDate = (
   date: Date,
   quantity: number,
@@ -71,8 +70,8 @@ export const startOfDate = (date: Date, scale: DateHelperScales) => {
 };
 
 export const ganttDateRange = (tasks: Task[], viewMode: ViewMode) => {
-  let newStartDate: Date = tasks[0].start;
-  let newEndDate: Date = tasks[0].start;
+  let newStartDate: Date = tasks[0]?.start;
+  let newEndDate: Date = tasks[0]?.start;
   for (const task of tasks) {
     if (task.start < newStartDate) {
       newStartDate = task.start;
@@ -190,4 +189,3 @@ export const getWeekNumberISO8601 = (date: Date) => {
 export const getDaysInMonth = (month: number, year: number) => {
   return new Date(year, month + 1, 0).getDate();
 };
-

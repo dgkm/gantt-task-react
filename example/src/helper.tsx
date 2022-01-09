@@ -1,94 +1,54 @@
 import { Task } from "../../dist/types/public-types";
 
 export function initTasks() {
-  const currentDate = new Date();
-  const tasks: Task[] = [
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
-      name: "Some Project",
-      id: "ProjectSample",
-      progress: 25,
-      type: "project",
+  //const currentDate = new Date();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
+  const test = [
+    {
+      start: new Date("2022-01-10T08:15:00.000Z"),
+      end: new Date("2022-01-20T08:30:00.000Z"),
+      name: "Treatment Program",
+      id: "4",
+      type: "project",
+      isDisabled: true,
       hideChildren: false,
     },
     {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 1),
-      end: new Date(
-        currentDate.getFullYear(),
-        currentDate.getMonth(),
-        2,
-        12,
-        28
-      ),
-      name: "Idea",
-      id: "Task 0",
-      progress: 45,
+      start: new Date("2022-01-10T08:15:00.000Z"),
+      end: new Date("2022-01-10T08:30:00.000Z"),
+      name: "Other Intake First Appointment",
+      project: "4",
+      id: "41",
+      progress: 40,
+      dependencies: [],
       type: "task",
-      project: "ProjectSample",
-    },
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 2),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 4, 0, 0),
-      name: "Research",
-      id: "Task 1",
-      progress: 25,
-      dependencies: ["Task 0"],
-      type: "task",
-      project: "ProjectSample",
-    },
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 4),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8, 0, 0),
-      name: "Discussion with team",
-      id: "Task 2",
-      progress: 10,
-      dependencies: ["Task 1"],
-      type: "task",
-      project: "ProjectSample",
-    },
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 9, 0, 0),
-      name: "Developing",
-      id: "Task 3",
-      progress: 2,
-      dependencies: ["Task 2"],
-      type: "task",
-      project: "ProjectSample",
-    },
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 8),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 10),
-      name: "Review",
-      id: "Task 4",
-      type: "task",
-      progress: 70,
-      dependencies: ["Task 2"],
-      project: "ProjectSample",
-    },
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 15),
-      name: "Release",
-      id: "Task 6",
-      progress: currentDate.getMonth(),
-      type: "milestone",
-      dependencies: ["Task 4"],
-      project: "ProjectSample",
-    },
-    {
-      start: new Date(currentDate.getFullYear(), currentDate.getMonth(), 18),
-      end: new Date(currentDate.getFullYear(), currentDate.getMonth(), 19),
-      name: "Party Time",
-      id: "Task 9",
-      progress: 0,
       isDisabled: true,
+    },
+    {
+      start: new Date("2022-01-08T12:27:51.115Z"),
+      end: new Date("2022-01-08T12:42:51.115Z"),
+      name: "Other Intake Second Appointment",
+      project: "4",
+      id: "42",
+      progress: 40,
+      dependencies: ["41"],
       type: "task",
+      isDisabled: true,
+    },
+    {
+      start: new Date("2022-01-08T12:27:51.105Z"),
+      end: new Date("2022-01-08T12:42:51.105Z"),
+      name: "Other Intake Third Appointment",
+      project: "4",
+      id: "43",
+      progress: 40,
+      dependencies: ["42"],
+      type: "task",
+      isDisabled: true,
     },
   ];
-  return tasks;
+  return [...test, ...test];
 }
 
 export function getStartEndDateForProject(tasks: Task[], projectId: string) {
